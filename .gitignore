@@ -1,0 +1,8 @@
+Temp/
+Library/
+.vscode/
+obj/
+ProjectSettings/
+*.csproj
+*.sln
+ExportedObj/
