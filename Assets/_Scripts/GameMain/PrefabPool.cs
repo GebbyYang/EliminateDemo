@@ -17,6 +17,8 @@
 		public static GameObject RootInstance{set; get;}
 		// 记录所有该预设的实例
 		private Queue<GameObject> _myQueue;
+		// 
+		private int Spawan;
 
 		/// <summary>
 		/// 缓存池对象，负责创建缓存

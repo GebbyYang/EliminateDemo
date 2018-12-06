@@ -10,13 +10,21 @@
 	/// </summary>
 	public abstract class BasePiece {
 		// 
-		public int PosX{set; get;}
-		public int PosY{set; get;}
+		protected int PosX{set; get;}
+		protected int PosY{set; get;}
+		// 
+		protected string PieceColor{set; get;}
 		// 
 		public int TargetX{set; get;}
 		public int TargetY{set; get;}
 		// 
-		public int PieceLayer{set; get;}
+		public bool Moveable{set; get;}
+		// 
+		public bool IsCrushing{set; get;}
+		// 
+		public bool IsDroping{set; get;}
+		// 
+		public PieceLayerType PieceLayer{set; get;}
 		// 
 		public GameObject pieceGameObject {private set; get;}
 
