@@ -1,4 +1,4 @@
-﻿namespace GameMain
+﻿namespace Eliminate.Main
 {
 	
 	using System.Collections;

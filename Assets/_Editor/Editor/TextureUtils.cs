@@ -35,5 +35,4 @@ public class TextureUtils : Editor {
 		}
 	}
 
-
 }
