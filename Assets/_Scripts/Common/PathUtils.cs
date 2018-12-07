@@ -13,7 +13,9 @@
 		/// <returns></returns>
 		public static string GetTablePath(string tableName)
 		{
-			return string.Format("{0}/Table/{1}", Application.streamingAssetsPath, tableName);
+			// string path = Application.streamingAssetsPath + @"/Table/" + tableName;
+			string path = string.Format("{0}/Table/{1}.csv", Application.streamingAssetsPath, tableName);
+			return path;
 		}
 
 	}

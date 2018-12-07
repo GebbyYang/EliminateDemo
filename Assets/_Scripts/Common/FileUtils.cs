@@ -30,7 +30,7 @@
 			// PC端
 			if(File.Exists(tablePath))
 			{
-				using(FileStream fileStream = File.OpenRead(tableName))
+				using(FileStream fileStream = File.OpenRead(tablePath))
 				{
 					if(fileStream == null)
 					{

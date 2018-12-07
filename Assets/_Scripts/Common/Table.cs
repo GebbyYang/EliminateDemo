@@ -127,6 +127,7 @@
                 ToolFunctions.LogError(fileName + "Open Read Table Failed.");
                 return false;
             }
+            // 
             s.PreprocessTable();
             int lineCount = s.GetLineCount();
             if (lineCount <= 0)

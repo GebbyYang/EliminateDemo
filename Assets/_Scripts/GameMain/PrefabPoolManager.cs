@@ -3,6 +3,7 @@
 	using System.Collections;
 	using System.Collections.Generic;
 	using UnityEngine;
+	using Eliminate.Common;
 
 	/// <summary>
 	/// 缓存池管理类

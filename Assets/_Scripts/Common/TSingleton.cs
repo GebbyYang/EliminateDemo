@@ -1,4 +1,4 @@
-﻿namespace Eliminate.Main
+﻿namespace Eliminate.Common
 {
 	using System.Reflection;
 	using System;

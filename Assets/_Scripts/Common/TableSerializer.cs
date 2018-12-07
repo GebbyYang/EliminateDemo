@@ -30,6 +30,7 @@
 
         private bool _CheckColumnType(EM_TYPE_COLUMN columnType)
         {
+            // Debug.Log(m_ColumnTypes[m_CurrentColumn]);
             if (this.m_IsCheckColumn && (this.m_ColumnTypes[this.m_CurrentColumn] != columnType))
             {
                 ToolFunctions.LogError(string.Concat(new object[] { "table [", this.m_FileName, "], line [", this.m_CurrentLine, "] column [", this.m_CurrentColumn, "] isn't match! in struct TableRow : [", COLUMN_TYPE_TO_STRING[(int)columnType], "] in .tab file : [", COLUMN_TYPE_TO_STRING[(int)this.m_ColumnTypes[this.m_CurrentColumn]], "]" }));

@@ -3,6 +3,7 @@
 	using System.Collections;
 	using System.Collections.Generic;
 	using UnityEngine;
+	using Eliminate.Common;
 
 	public class EditorMain : MonoBehaviour {
 		
