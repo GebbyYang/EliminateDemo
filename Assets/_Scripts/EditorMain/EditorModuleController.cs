@@ -18,7 +18,7 @@
 			modules.Add(t);
 		}
 
-		public T GetModule<T>(T t) where T: EditorModuleBase
+		public T GetModule<T>() where T: EditorModuleBase
 		{
 			foreach(EditorModuleBase item in modules)
 			{
@@ -30,9 +30,9 @@
 			return default(T);
 		}
 
-		public void Remove<T>(T t) where T: EditorModuleBase
+		public void Remove<T>() where T: EditorModuleBase
 		{
-			T item = GetModule<T>(t);
+			T item = GetModule<T>();
 			if(item != null)
 			{
 				modules.Remove(item);

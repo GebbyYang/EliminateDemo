@@ -4,6 +4,7 @@
 	using System.Collections;
 	using System.Collections.Generic;
 	using UnityEngine;
+	using Eliminate.Type;
 
 	/// <summary>
 	/// 普通消除物逻辑
@@ -31,15 +32,20 @@
 		/// <summary>
 		/// 创建一个普通消除物
 		/// </summary>
-		public virtual void cretatePiece()
+		public virtual void CretatePiece()
 		{
 			
+		}
+
+		public virtual void OnDroping()
+		{
+
 		}
 
 		/// <summary>
 		/// 销毁当前普通消除物
 		/// </summary>
-		public virtual void onCrush()
+		public virtual void OnCrush()
 		{
 
 		}
@@ -47,7 +53,7 @@
 		/// <summary>
 		/// 普通消除物的下落停靠
 		/// </summary>
-		public virtual void onLanded()
+		public virtual void OnLanded()
 		{
 
 		}
@@ -55,7 +61,7 @@
 		/// <summary>
 		/// 设置
 		/// </summary>
-		public void setPosition()
+		public void SetPosition()
 		{
 			
 		}

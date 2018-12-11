@@ -7,13 +7,17 @@
 
 	public class EditorMain : MonoBehaviour {
 		
-		public EditorModuleController controller;
+		public EditorModuleController Controller;
 
 		public Transform EditorRoot;
 
+		public EditorLevelConfig currentLevelConfig;
+
+		public EditorGrid[,] Grids;
+
 		public EditorMain()
 		{
-			controller = new EditorModuleController();
+			Controller = new EditorModuleController();
 		}
 
 		void Start()
@@ -23,7 +27,10 @@
 
 		private void InitModules()
 		{
-			controller.AddModule<EditorFileModule>(new EditorFileModule(this));
+			Controller.AddModule<EditorFileModule>(new EditorFileModule(this));
+			Controller.AddModule<EditorPieceModule>(new EditorPieceModule(this));
+			Controller.AddModule<EditorLayerModule>(new EditorLayerModule(this));
+
 		}
 
 	}

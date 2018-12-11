@@ -5,16 +5,13 @@
 	using UnityEngine;
 	using UnityEngine.UI;
 	using UnityEngine.Events;
+	using System;
 
 	public class EditorFileModule : EditorModuleBase{
 
 		private FileModuleView moduleView;
 
-		UnityAction createOne;
-
-		UnityAction loadOne;
-
-		UnityAction saveOne;
+		private Action<int> submit;
 
 		public EditorFileModule(EditorMain main):base(main)
 		{
@@ -26,31 +23,80 @@
 		{
 			if(moduleView != null)
 			{
-				createOne += CreateOne;
-				moduleView.CreatNew.onClick.AddListener(createOne);
-				loadOne += LoadOne;
-				moduleView.LoadOne.onClick.AddListener(loadOne);
-				saveOne += SaveOne;
-				moduleView.SaveOne.onClick.AddListener(saveOne);
+				// Button OnClick Listener
+				moduleView.CreatNew.onClick.AddListener(CreateOneClick);
+				moduleView.LoadOne.onClick.AddListener(LoadOneClick);
+				moduleView.SaveOne.onClick.AddListener(SaveOneClick);
+				moduleView.SelectLevel.onClick.AddListener(SelectLevelClick);
+				moduleView.CancleSelect.onClick.AddListener(CancleSelect);
 			}
+		}
+
+		private void CreateOneLevel(int leveNum)
+		{
+			main.currentLevelConfig = GetBlankLevel(leveNum);
+			var pieceModule = main.Controller.GetModule<EditorPieceModule>();
+			if(pieceModule == null)
+			{
+				Debug.LogError("Missing Require Component");
+				return;
+			}
+			pieceModule.Init();
+		}
+
+		private void LoadOneLevel(int levelNum)
+		{
+
+		}
+		
+		private EditorLevelConfig GetBlankLevel(int leveNum)
+		{
+			EditorLevelConfig config = new EditorLevelConfig();
+			config.Level = leveNum;
+			config.Column = GlobelConfigs.maxColumn;
+			config.Row = GlobelConfigs.maxRow;
+			config.Steps = 0;
+			config.GridActived = new int[GlobelConfigs.maxRow, GlobelConfigs.maxColumn];
+			config.layerPieceConfig = new EditorLayerConfig[GlobelConfigs.maxLayerCount];
+			return config;
 		}
 
 		/// <summary>
 		/// 创建一个新的关卡
 		/// </summary>
-		private void CreateOne()
+		private void CreateOneClick()
+		{
+			moduleView.SelectPanel.SetActive(true);
+			submit = CreateOneLevel;
+		}
+
+		private void LoadOneClick()
+		{
+			moduleView.SelectPanel.SetActive(true);
+			submit = LoadOneLevel;
+		}
+
+		private void SaveOneClick()
 		{
 			
 		}
 
-		private void LoadOne()
+		private void SelectLevelClick()
 		{
-
+			moduleView.SelectPanel.SetActive(false);
+			int leveNum;
+			if(int.TryParse(moduleView.LevelInput.text, out leveNum))
+			{
+				if(submit != null)
+				{
+					submit(leveNum);
+				}
+			}
 		}
 
-		private void SaveOne()
+		private void CancleSelect()
 		{
-
+			moduleView.SelectPanel.SetActive(false);
 		}
 
 	}
