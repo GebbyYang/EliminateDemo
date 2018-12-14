@@ -7,7 +7,7 @@
 
 	public class EditorLayerModule : EditorModuleBase {
 
-		private LayerModuleView moduleView;
+		private EditorLayerModuleView moduleView;
 
 		
 		public EditorLayerModule(EditorMain mainIns) : base(mainIns)
@@ -19,7 +19,7 @@
 		{
 			if(main.currentLevelConfig != null)
 			{
-				moduleView = BuildView<LayerModuleView>("LayerModuleView");
+				moduleView = BuildView<EditorLayerModuleView>("LayerModuleView");
 				moduleView.LevelNum.text = main.currentLevelConfig.Level.ToString();
 				moduleView.LevelStep.text = main.currentLevelConfig.Steps.ToString();
 			}

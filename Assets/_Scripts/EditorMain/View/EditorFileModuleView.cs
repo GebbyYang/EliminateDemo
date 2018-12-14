@@ -3,7 +3,7 @@
 	using UnityEngine;
 	using UnityEngine.UI;
 
-	public class FileModuleView : MonoBehaviour {
+	public class EditorFileModuleView : MonoBehaviour {
 
 		public Button CreatNew;
 

@@ -4,29 +4,28 @@
 	using System.Collections.Generic;
 	using UnityEngine;
 	using Eliminate.Common;
+	using Eliminate.Type;
+	using System;
 
 	public class EditorPieceModule : EditorModuleBase {
 
-		private PieceModuleView moduleView;
+		private EditorPieceModuleView moduleView;
+
+		public EditorPiece selectPiece{set; get;}
 		
 		public EditorPieceModule(EditorMain mainIns) : base(mainIns)
 		{
-			moduleView = BuildView<PieceModuleView>("PieceModuleView");
+			moduleView = BuildView<EditorPieceModuleView>("PieceModuleView");
 		}
 
 		public void Init()
 		{
 			if(main.currentLevelConfig != null)
 			{
-				main.Grids = new EditorGrid[GlobelConfigs.maxRow, GlobelConfigs.maxColumn];
-				var go = TSingleTon<PrefabLoad>.Singleton().LoadFromResource("EditorView", "GridView");
-				for(int i = 0; i < GlobelConfigs.maxRow; i++)
+				for(int i = 0; i < GlobelConfigs.NormalPieceStr.Length; i++)
 				{
-					for(int j = 0; j < GlobelConfigs.maxColumn; j++)
-					{
-						main.Grids[i, j] = new EditorGrid(i, j);
-						main.Grids[i, j].BuidGridView(go, moduleView.transform);
-					}
+					EditorPiece editorPiece = new EditorPiece(GlobelConfigs.NormalPieceID[i], GlobelConfigs.NormalPieceStr[i], 1, this);
+					editorPiece.BuildView(moduleView.transform);
 				}
 			}
 		}

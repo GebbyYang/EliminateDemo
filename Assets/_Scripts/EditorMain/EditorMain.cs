@@ -30,7 +30,7 @@
 			Controller.AddModule<EditorFileModule>(new EditorFileModule(this));
 			Controller.AddModule<EditorPieceModule>(new EditorPieceModule(this));
 			Controller.AddModule<EditorLayerModule>(new EditorLayerModule(this));
-
+			Controller.AddModule<EditorGridModule>(new EditorGridModule(this));
 		}
 
 	}

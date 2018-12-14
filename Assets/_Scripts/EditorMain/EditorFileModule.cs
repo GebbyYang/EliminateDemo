@@ -9,13 +9,13 @@
 
 	public class EditorFileModule : EditorModuleBase{
 
-		private FileModuleView moduleView;
+		private EditorFileModuleView moduleView;
 
 		private Action<int> submit;
 
 		public EditorFileModule(EditorMain main):base(main)
 		{
-			moduleView = BuildView<FileModuleView>("FileModuleView");
+			moduleView = BuildView<EditorFileModuleView>("FileModuleView");
 			InitOnClick();
 		}
 
@@ -35,13 +35,8 @@
 		private void CreateOneLevel(int leveNum)
 		{
 			main.currentLevelConfig = GetBlankLevel(leveNum);
-			var pieceModule = main.Controller.GetModule<EditorPieceModule>();
-			if(pieceModule == null)
-			{
-				Debug.LogError("Missing Require Component");
-				return;
-			}
-			pieceModule.Init();
+			main.Controller.GetModule<EditorGridModule>().Init();
+			main.Controller.GetModule<EditorPieceModule>().Init();
 		}
 
 		private void LoadOneLevel(int levelNum)
@@ -53,11 +48,11 @@
 		{
 			EditorLevelConfig config = new EditorLevelConfig();
 			config.Level = leveNum;
-			config.Column = GlobelConfigs.maxColumn;
-			config.Row = GlobelConfigs.maxRow;
+			config.Column = GlobelConfigs.MaxColumn;
+			config.Row = GlobelConfigs.MaxRow;
 			config.Steps = 0;
-			config.GridActived = new int[GlobelConfigs.maxRow, GlobelConfigs.maxColumn];
-			config.layerPieceConfig = new EditorLayerConfig[GlobelConfigs.maxLayerCount];
+			config.GridActived = new int[GlobelConfigs.MaxRow, GlobelConfigs.MaxColumn];
+			config.layerPieceConfig = new EditorLayerConfig[GlobelConfigs.MaxLayerCount];
 			return config;
 		}
 

@@ -3,7 +3,7 @@
 	using UnityEngine;
 	using UnityEngine.UI;
 
-	public class LayerModuleView : MonoBehaviour {
+	public class EditorLayerModuleView : MonoBehaviour {
 		
 		public Text LevelNum;
 
