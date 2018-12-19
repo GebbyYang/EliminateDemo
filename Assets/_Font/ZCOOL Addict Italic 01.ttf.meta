@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: 2d3bda77f45951d4f9d2e024b1c6143a
+timeCreated: 1545117655
+licenseType: Pro
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: ZCOOL Addict Italic 01
+  fontNames:
+  - ZCOOL Addict Italic 01
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

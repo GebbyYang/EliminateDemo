@@ -11,14 +11,6 @@
 
 		public Button SaveOne;
 
-		public GameObject SelectPanel;
-
-		public InputField LevelInput;
-
-		public Button SelectLevel;
-
-		public Button CancleSelect;
-
 	}
 }
 

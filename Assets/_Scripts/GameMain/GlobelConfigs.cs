@@ -5,7 +5,7 @@
 	// 纵向棋盘最大数
 	public static int MaxRow = 7;
 	// 
-	public static int MaxLayerCount = 3;
+	public static int MaxLayerCount = 1;
 	// 棋盘格子宽度
 	public static float PieceSize = 1.0f;
 	// 

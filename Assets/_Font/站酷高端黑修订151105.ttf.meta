@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: c38e507df7eb7d945bd0e915870ae5b5
+timeCreated: 1545117655
+licenseType: Pro
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: zcool-gdh
+  fontNames:
+  - zcool-gdh
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

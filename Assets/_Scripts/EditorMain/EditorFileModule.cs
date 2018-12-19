@@ -6,8 +6,9 @@
 	using UnityEngine.UI;
 	using UnityEngine.Events;
 	using System;
+	using Eliminate.Common;
 
-	public class EditorFileModule : EditorModuleBase{
+	public class EditorFileModule : EditorModuleBase,IWindowListener{
 
 		private EditorFileModuleView moduleView;
 
@@ -19,6 +20,23 @@
 			InitOnClick();
 		}
 
+		public void WindowCallback(object data)
+		{
+			if(submit != null)
+			{
+				int levelNum;
+				if(int.TryParse(data.ToString(), out levelNum))
+				{
+					submit(levelNum);
+				}
+			}
+		}
+
+		public void WindowCancle()
+		{
+			submit = null;
+		}
+
 		private void InitOnClick()
 		{
 			if(moduleView != null)
@@ -27,21 +45,27 @@
 				moduleView.CreatNew.onClick.AddListener(CreateOneClick);
 				moduleView.LoadOne.onClick.AddListener(LoadOneClick);
 				moduleView.SaveOne.onClick.AddListener(SaveOneClick);
-				moduleView.SelectLevel.onClick.AddListener(SelectLevelClick);
-				moduleView.CancleSelect.onClick.AddListener(CancleSelect);
 			}
 		}
 
 		private void CreateOneLevel(int leveNum)
 		{
 			main.currentLevelConfig = GetBlankLevel(leveNum);
-			main.Controller.GetModule<EditorGridModule>().Init();
-			main.Controller.GetModule<EditorPieceModule>().Init();
+			main.InitLevelView();
 		}
 
 		private void LoadOneLevel(int levelNum)
 		{
 
+		}
+
+		/// <summary>
+		/// 加载配置和创建新配置的时候调用
+		/// 刷新数据到配节界面上
+		/// </summary>
+		private void UpdateLevelToView()
+		{
+			
 		}
 		
 		private EditorLevelConfig GetBlankLevel(int leveNum)
@@ -53,6 +77,10 @@
 			config.Steps = 0;
 			config.GridActived = new int[GlobelConfigs.MaxRow, GlobelConfigs.MaxColumn];
 			config.layerPieceConfig = new EditorLayerConfig[GlobelConfigs.MaxLayerCount];
+			for(int i = 0; i < config.layerPieceConfig.Length; i++)
+			{
+				config.layerPieceConfig[i] = new EditorLayerConfig();
+			}
 			return config;
 		}
 
@@ -61,37 +89,18 @@
 		/// </summary>
 		private void CreateOneClick()
 		{
-			moduleView.SelectPanel.SetActive(true);
 			submit = CreateOneLevel;
+			TSingleTon<AlertWindowManager>.Singleton().AlertWindow(AlertWindowType.SelectWindow, this);
 		}
 
 		private void LoadOneClick()
 		{
-			moduleView.SelectPanel.SetActive(true);
 			submit = LoadOneLevel;
 		}
 
 		private void SaveOneClick()
 		{
 			
-		}
-
-		private void SelectLevelClick()
-		{
-			moduleView.SelectPanel.SetActive(false);
-			int leveNum;
-			if(int.TryParse(moduleView.LevelInput.text, out leveNum))
-			{
-				if(submit != null)
-				{
-					submit(leveNum);
-				}
-			}
-		}
-
-		private void CancleSelect()
-		{
-			moduleView.SelectPanel.SetActive(false);
 		}
 
 	}

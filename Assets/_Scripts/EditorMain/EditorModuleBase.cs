@@ -27,6 +27,11 @@
 			return view.GetComponent<T>();
 		}
 
+		public virtual void InitView()
+		{
+			
+		}
+
 		public virtual void LoadFromJson()
 		{
 

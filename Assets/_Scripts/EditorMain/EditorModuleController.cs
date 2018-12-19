@@ -30,6 +30,14 @@
 			return default(T);
 		}
 
+		public void InitLevelConfigView()
+		{
+			foreach(EditorModuleBase item in modules)
+			{
+				item.InitView();
+			}
+		}
+
 		public void Remove<T>() where T: EditorModuleBase
 		{
 			T item = GetModule<T>();

@@ -11,7 +11,7 @@
 
 		public Transform EditorRoot;
 
-		public EditorLevelConfig currentLevelConfig;
+		public EditorLevelConfig currentLevelConfig{set; get;}
 
 		public EditorGrid[,] Grids;
 
@@ -23,6 +23,11 @@
 		void Start()
 		{
 			InitModules();
+		}
+
+		public void InitLevelView()
+		{
+			Controller.InitLevelConfigView();
 		}
 
 		private void InitModules()

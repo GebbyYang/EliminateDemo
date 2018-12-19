@@ -16,6 +16,11 @@
 		public int[,] GridActived;
 
 		public EditorLayerConfig[] layerPieceConfig;
+
+		public EditorLevelConfig()
+		{
+
+		}
 		
 		
 	}

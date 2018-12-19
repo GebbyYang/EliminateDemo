@@ -4,6 +4,7 @@
 	using System.Collections.Generic;
 	using UnityEngine;
 	using Eliminate.Common;
+	using UnityEngine.UI;
 
 	public class EditorGrid {
 
@@ -54,6 +55,17 @@
 			ResizeGrid();
 		}
 
+		public void SetAlpha(float value)
+		{
+			Image[] images = m_GridView.GetComponentsInChildren<Image>();
+			foreach(Image item in images)
+			{
+				Color temp = item.color;
+				temp.a = value;
+				item.color = temp;
+			}
+		}
+
 		private void ResizeGrid()
 		{
 			if(m_GridView == null || m_EGridView == null)
@@ -71,8 +83,10 @@
 			if(piece != null && m_EGridView.IconImage.sprite == defaultSprite)
 			{
 				m_EGridView.IconImage.sprite = piece.GetSprite();
+				m_main.SetGridPiece(x, y, piece.GetPieceId());
 			}else{
 				m_EGridView.IconImage.sprite = defaultSprite;
+				m_main.SetGridPiece(x, y, 0);
 			}
 		}
 

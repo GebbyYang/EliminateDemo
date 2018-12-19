@@ -8,6 +8,8 @@
 		public Text LevelNum;
 
 		public Text LevelStep;
+
+		public Button SelectNormalLayer;
 	}
 
 }

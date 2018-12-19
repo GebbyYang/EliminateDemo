@@ -4,7 +4,6 @@
 	using System.Collections;
 	using System.Collections.Generic;
 	using UnityEngine;
-	using Eliminate.Type;
 
 	/// <summary>
 	/// 普通消除物逻辑

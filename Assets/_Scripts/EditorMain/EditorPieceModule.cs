@@ -4,7 +4,6 @@
 	using System.Collections.Generic;
 	using UnityEngine;
 	using Eliminate.Common;
-	using Eliminate.Type;
 	using System;
 
 	public class EditorPieceModule : EditorModuleBase {
@@ -18,15 +17,17 @@
 			moduleView = BuildView<EditorPieceModuleView>("PieceModuleView");
 		}
 
-		public void Init()
+		public override void InitView()
 		{
-			if(main.currentLevelConfig != null)
+			InitSelectPiece();
+		}
+
+		public void InitSelectPiece()
+		{
+			for(int i = 0; i < GlobelConfigs.NormalPieceStr.Length; i++)
 			{
-				for(int i = 0; i < GlobelConfigs.NormalPieceStr.Length; i++)
-				{
-					EditorPiece editorPiece = new EditorPiece(GlobelConfigs.NormalPieceID[i], GlobelConfigs.NormalPieceStr[i], 1, this);
-					editorPiece.BuildView(moduleView.transform);
-				}
+				EditorPiece editorPiece = new EditorPiece(GlobelConfigs.NormalPieceID[i], GlobelConfigs.NormalPieceStr[i], 1, this);
+				editorPiece.BuildView(moduleView.transform);
 			}
 		}
 
