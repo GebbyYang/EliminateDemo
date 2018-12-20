@@ -9,6 +9,8 @@
 
 		private EditorLayerModuleView moduleView;
 
+		public int CurrentLayer{set; get;}
+
 		
 		public EditorLayerModule(EditorMain mainIns) : base(mainIns)
 		{
@@ -23,9 +25,21 @@
 
 		public void InitLayerSelect()
 		{
-			moduleView = BuildView<EditorLayerModuleView>("LayerModuleView");
+			if(moduleView == null)
+			{
+				moduleView = BuildView<EditorLayerModuleView>("LayerModuleView");
+			}
 			moduleView.LevelNum.text = main.currentLevelConfig.Level.ToString();
 			moduleView.LevelStep.text = main.currentLevelConfig.Steps.ToString();
+		}
+
+		public override void SaveToJson()
+		{
+			int step;
+			if(int.TryParse(moduleView.LevelStep.text, out step))
+			{
+				main.currentLevelConfig.Steps = step;
+			}
 		}
 
 		private void InitClick()
@@ -35,7 +49,8 @@
 
 		private void SelectNormal()
 		{
-			main.Controller.GetModule<EditorGridModule>().SelectLayer(1);
+			main.Controller.GetModule<EditorGridModule>().SelectLayer(0);
+			CurrentLayer = 0;
 		}
 
 	}

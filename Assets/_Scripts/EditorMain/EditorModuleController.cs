@@ -3,6 +3,7 @@
 	using System.Collections;
 	using System.Collections.Generic;
 	using UnityEngine;
+	using System;
 
 	public class EditorModuleController {
 		
@@ -28,6 +29,18 @@
 				}
 			}
 			return default(T);
+		}
+
+		/// <summary>
+		/// 用于遍历执行基类方法
+		/// </summary>
+		/// <param name="action"></param>
+		public void TraversalList(Action<EditorModuleBase> action)
+		{
+			foreach(var item in modules)
+			{
+				action(item);
+			}
 		}
 
 		public void InitLevelConfigView()

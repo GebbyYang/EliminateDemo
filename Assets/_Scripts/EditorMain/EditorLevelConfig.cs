@@ -10,10 +10,10 @@
 	public class EditorLevelConfig {
 		
 		public int Level;
-		public int Column{set; get;}
-		public int Row{set; get;}
-		public int Steps{set; get;}
-		public int[,] GridActived;
+		public int Column;
+		public int Row;
+		public int Steps;
+		public int[] GridActived;
 
 		public EditorLayerConfig[] layerPieceConfig;
 

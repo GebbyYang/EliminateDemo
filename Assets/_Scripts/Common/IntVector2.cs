@@ -4,6 +4,9 @@
 	using System.Collections.Generic;
 	using UnityEngine;
 
+	/// <summary>
+	/// 整形的Vector2类型
+	/// </summary>
 	public class IntVector2 {
 
 		public int x;

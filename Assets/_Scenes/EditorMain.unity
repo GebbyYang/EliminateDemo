@@ -138,9 +138,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EditorRoot: {fileID: 393917896}
-  currentLevelConfig:
-    Level: 0
-    layerPieceConfig: []
 --- !u!4 &149876061
 Transform:
   m_ObjectHideFlags: 0

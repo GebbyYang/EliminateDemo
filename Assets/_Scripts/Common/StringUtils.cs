@@ -48,7 +48,7 @@
 			long.TryParse(str, out result);
 			return result;
 		}
-
+		
 		public static ulong StringToULong(string str)
 		{
 			ulong result = default(ulong);

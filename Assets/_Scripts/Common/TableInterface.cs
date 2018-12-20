@@ -2,6 +2,9 @@
 {
     using System;
 
+    /// <summary>
+    /// 数据表抽象类
+    /// </summary>
     public abstract class TableInterface
     {
         private int m_Index;

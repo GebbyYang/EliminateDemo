@@ -56,7 +56,18 @@
 
 		private void LoadOneLevel(int levelNum)
 		{
+			
+		}
 
+		private void SaveToFileByJson()
+		{
+			Action<EditorModuleBase> action = (a) =>
+			{
+				a.SaveToJson();
+			};
+			main.Controller.TraversalList(action);
+			string json = JsonUtility.ToJson(main.currentLevelConfig);
+			FileUtils.WriteStringToFile(json, main.currentLevelConfig.Level.ToString());
 		}
 
 		/// <summary>
@@ -75,7 +86,7 @@
 			config.Column = GlobelConfigs.MaxColumn;
 			config.Row = GlobelConfigs.MaxRow;
 			config.Steps = 0;
-			config.GridActived = new int[GlobelConfigs.MaxRow, GlobelConfigs.MaxColumn];
+			config.GridActived = new int[GlobelConfigs.MaxRow*GlobelConfigs.MaxColumn];
 			config.layerPieceConfig = new EditorLayerConfig[GlobelConfigs.MaxLayerCount];
 			for(int i = 0; i < config.layerPieceConfig.Length; i++)
 			{
@@ -100,7 +111,7 @@
 
 		private void SaveOneClick()
 		{
-			
+			SaveToFileByJson();
 		}
 
 	}

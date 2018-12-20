@@ -7,7 +7,7 @@
 		
 		public Text LevelNum;
 
-		public Text LevelStep;
+		public InputField LevelStep;
 
 		public Button SelectNormalLayer;
 	}
